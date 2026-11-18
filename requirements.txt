@@ -1,0 +1,13 @@
+numpy
+scipy
+pandas
+pyyaml
+pyarrow
+matplotlib
+scikit-learn
+shap
+joblib
+pytest
+# dashboard (phase 5)
+streamlit
+plotly

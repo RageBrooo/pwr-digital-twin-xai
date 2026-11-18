@@ -1,0 +1,24 @@
+# NOMINAL plant parameters = everything the Gatekeeper (and the rod controller's feedforward) is allowed to assume.
+# The TRUE plant is never stored: it is generated from this file by make_plant_pair(mismatch, seed).
+# Values are generic textbook-style PWR numbers chosen for this project -- verify against a source before citing.
+Lambda: 2.0e-5        # prompt neutron generation time [s]
+alpha_D: -2.5e-5      # Doppler coefficient [dk/k per K fuel]
+alpha_M: -2.0e-4      # moderator coefficient [dk/k per K coolant]
+k_void: 0.05          # inventory reactivity worth [dk/k per unit inventory fraction]
+P0: 3.0e9             # rated thermal power [W]
+W0: 17500.0           # rated core flow [kg/s]
+cp: 5600.0            # coolant specific heat [J/kg/K]
+Cf: 4.5e7             # lumped fuel + clad heat capacity [J/K]
+Cc0: 5.6e8            # lumped coolant + structure heat capacity at full inventory [J/K]
+hA: 8.8e6             # fuel-to-coolant conductance [W/K]
+sg_eff: 0.8           # steam-generator effectiveness
+T_sec: 283.5          # secondary-side temperature [degC]
+tau_pump: 3.0         # pump speed lag [s]
+beta_exp: 1.0e-3      # level change per K of coolant temperature
+k_charge: 0.02        # charging proportional gain [1/s]
+charge_max: 5.0e-5    # maximum make-up rate [fraction/s]
+flux_cal_1: 1.0       # detector calibration (nominal = perfect)
+flux_cal_2: 1.0
+flow_cal: 1.0
+level_off_1: 0.0      # level channel offsets (nominal = none)
+level_off_2: 0.0

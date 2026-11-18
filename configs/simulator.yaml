@@ -1,0 +1,31 @@
+sim:
+  dt: 0.1                 # sample interval [s] = 10 Hz
+  ctrl_dt: 1.0            # rod-controller update period [s]
+  method: Radau
+  rtol: 1.0e-6
+  atol: 1.0e-9
+  Kp: 0.002               # PI trim gains
+  Ki: 0.0004
+  tau_ff: 6.0             # feedforward demand lag [s]
+  ctrl_flux_mode: mean    # "mean" of both flux channels (faults propagate) | "true" (ideal)
+
+sensors:
+  noise_scale: 1.0        # sweep knob multiplying every sigma
+  tau_T: 0.0              # RTD lag on T_in / T_out [s] (0 = off)
+  sigma:
+    flux_1: 0.002         # fraction of rated power
+    flux_2: 0.002
+    T_in: 0.10            # K
+    T_out_1: 0.10
+    T_out_2: 0.10
+    T_fuel: 1.0
+    flow: 0.004           # fraction of W0
+    pump_speed: 0.002
+    level_1: 0.001        # inventory fraction
+    level_2: 0.001
+
+mismatch:                 # max relative offset = level * weight * U(0.5, 1) with random sign
+  fields: {Cf: 1.0, Cc0: 1.0, hA: 1.0, cp: 0.6, W0: 0.8, beta_exp: 1.0, flow_cal: 0.6}
+  flux_common_weight: 1.0       # common flux calibration error (primary driver), U(0.9, 1) * level
+  flux_channel_fraction: 0.25   # independent channel-to-channel part, as a fraction of level
+  level_offset_weight: 0.1      # absolute level-channel offsets = 0.1 * level * U(-1, 1)
